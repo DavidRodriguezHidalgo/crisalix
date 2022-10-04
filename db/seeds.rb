@@ -6,8 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Doctor.create(name: 'Philip', address: 'Recogidas Street 45, Granada', email: 'test@test.com', password: 'testtest')
-Doctor.create(name: 'Who', address: 'Recogidas Street 40, Granada', email: 'who@doctor.com', password: 'testtest')
-Doctor.create(name: 'Daniel', address: 'Recogidas Street 50, Granada', email: 'daniel@test.com', password: 'testtest')
-
-Patient.create(name: 'Mark', address: 'Fake street 123, Granada', email: 'mark@test.com', password: 'testtest')
+doc = Doctor.create(email: 'test@test.com', password: 'testtest')
+doc.profile.name = 'Philip'
+doc.profile.address = 'Recogidas Street 45, Granada'
+doc2 = Doctor.create(email: 'who@doctor.com', password: 'testtest')
+doc2.profile.name = 'Who'
+doc2.profile.address = 'Recogidas Street 40, Granada'
+doc3 = Doctor.create(email: 'daniel@test.com', password: 'testtest')
+doc3.profile.name = 'Daniel'
+doc3.profile.address = 'Recogidas Street 50, Granada'
+patient = Patient.create(email: 'mark@test.com', password: 'testtest')
+patient.profile.name = 'Mark'
+patient.profile.address = 'Fake street 123, Granada'
