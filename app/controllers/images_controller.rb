@@ -7,8 +7,12 @@ class ImagesController < ApplicationController
   end
 
   def create
-    if current_user.images.create(file: params[:image][:file])
+    image = current_user.images.create(file: params[:image][:file])
+    if image.valid?
       redirect_to images_path, notice: "Image created"
+    else
+      flash[:danger] = "Please upload an image (jpg, png or jpeg). "
+      render :new
     end
   end
 
