@@ -1,0 +1,11 @@
+<navbar class="w-full bg-teal-500 text-teal-800 px-5 py-3 mb-2">
+  <% if user_signed_in?  %>
+    <%= link_to "Home", root_path, class: "mx-2" %>
+    <% if current_user.patient?  %>
+      <%= link_to "My images", images_path, class: "mx-2" %>
+    <% end %>
+    <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "mx-2" %>
+  <% else %>
+    <%= link_to "Log in", new_user_session_path, class: "mx-2" %>
+  <% end %>
+</navbar>

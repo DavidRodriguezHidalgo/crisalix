@@ -1,5 +1,7 @@
-<div>
-  <%= image_tag url_for(image.file), width: 500 %>
+<div class="p-5 flex flex-col">
+  <div>
+  <%= image_tag url_for(image.file), width: 250 %>
 
-  <%= link_to "Delete image", image_path(image), method: :delete %>
+  <%= link_to "Delete image", image_path(image), method: :delete, class: "bg-red-300 text-red-500 px-2 border border-red-500 rounded-lg" %>
+  </div>
 </div>
