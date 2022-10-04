@@ -1,0 +1,11 @@
+<div class="flex flex-col">
+  <h2 class="text-2xl">User images</h2>
+  <% if @images.length < 3 %>
+    <%= link_to "Add image", new_image_path %>
+  <% end %>
+
+  <div class="flex">
+    <%= render @images %>
+  </div>
+
+</div>

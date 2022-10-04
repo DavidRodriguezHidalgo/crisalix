@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
+gem 'image_processing', '>= 1.2'
 
 group :development, :test do
   gem 'pry'

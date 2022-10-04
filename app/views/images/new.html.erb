@@ -1,0 +1,4 @@
+<%= form_for(Image.new, url: images_path, html: {class: "my-2"}) do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit "Upload", class: "bg-blue-300 text-white p-2 border border-blue-500 rounded-lg" %>
+<% end %>

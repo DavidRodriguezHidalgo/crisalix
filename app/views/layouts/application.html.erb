@@ -12,7 +12,23 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-12 px-5 flex">
+    <main class="container mx-auto mt-12 px-5 flex flex-col">
+      <% flash.each do |type, msg| %>
+        <div class="p-5 rounded-lg <%= (type == 'notice' ? 'bg-green-300 text-green-500' : 'bg-red-300 text-red-500') %>">
+          <%= msg %>
+        </div>
+      <% end %>
+      <navbar class="w-full">
+        <% if user_signed_in?  %>
+          <%= link_to "Home", root_path %>
+          <% if current_user.is_a?(Patient)  %>
+            <%= link_to "My images", images_path %>
+          <% end %>
+          <%= link_to "Log out", destroy_user_session_path, method: 'delete' %>
+        <% else %>
+          <%= link_to "Log in", new_user_session_path %>
+        <% end %>
+      </navbar>
       <%= yield %>
     </main>
   </body>
