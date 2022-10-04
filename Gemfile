@@ -16,6 +16,7 @@ gem 'devise'
 
 group :development, :test do
   gem 'pry'
+  gem 'pry-nav'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -38,3 +39,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "tailwindcss-rails", "~> 2.0"

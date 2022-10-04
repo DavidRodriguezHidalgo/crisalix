@@ -7,10 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Doctor.create(name: 'Philip', address: 'Recogidas Street 45, Granada', email: 'test@test.com', password: 'testtest')
-Doctor.create(name: 'Philip', address: 'Recogidas Street 45, Granada', email: 'test@test.com', password: 'testtest')
-Doctor.create(name: 'Philip', address: 'Recogidas Street 45, Granada', email: 'test@test.com', password: 'testtest')
-Doctor.create(name: 'Philip', address: 'Recogidas Street 45, Granada', email: 'test@test.com', password: 'testtest')
-Doctor.create(name: 'Philip', address: 'Recogidas Street 45, Granada', email: 'test@test.com', password: 'testtest')
-Doctor.create(name: 'Philip', address: 'Recogidas Street 45, Granada', email: 'test@test.com', password: 'testtest')
+Doctor.create(name: 'Who', address: 'Recogidas Street 40, Granada', email: 'who@doctor.com', password: 'testtest')
+Doctor.create(name: 'Daniel', address: 'Recogidas Street 50, Granada', email: 'daniel@test.com', password: 'testtest')
 
-Patient.create(name: 'Philip', address: 'Recogidas Street 45, Granada', email: 'test@test.com', password: 'testtest')
+Patient.create(name: 'Mark', address: 'Fake street 123, Granada', email: 'mark@test.com', password: 'testtest')
