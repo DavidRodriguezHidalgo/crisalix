@@ -38,7 +38,7 @@ describe "as a patient", type: :system, js: true do
 
   it "allows me to set an appointment" do
     log_in_user('patient32@example.com', 'password')
-    expect(page).to have_content 'My images'
+    expect(page).to have_content 'My profile'
 
     patient = Patient.find_by(email: 'patient32@example.com')
     upload_images_for_patient(patient)
@@ -49,7 +49,7 @@ describe "as a patient", type: :system, js: true do
 
   it "allows me to delete an appointment" do
     log_in_user('patient33@example.com', 'password')
-    expect(page).to have_content 'My images'
+    expect(page).to have_content 'My profile'
 
     patient2 = Patient.find_by(email: 'patient33@example.com')
     upload_images_for_patient(patient2)
@@ -74,7 +74,7 @@ describe "as a doctor", type: :system, js: true do
   end
 
   it "shows the appointment booked by a patient" do
-    expect(page).to have_content 'My images'
+    expect(page).to have_content 'My profile'
 
     patient = Patient.find_by(email: 'patient37@example.com')
     upload_images_for_patient(patient)

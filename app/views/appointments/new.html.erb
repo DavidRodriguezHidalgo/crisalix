@@ -1,23 +1,29 @@
-<div class="flex">
-  <div class="pr-2">
-    <%= search_form_for(@q, url: new_appointment_path, class: "flex justify-between mb-2") do |f| %>
-      <%= f.search_field :profile_name_or_profile_address_cont, class: "rounded-lg h-8 border-blue-300" %>
-      <%= f.submit "Search", class: "bg-blue-300 text-white px-2 flex justify-center items-center border border-blue-500 rounded-lg" %>
-    <% end %>
-    <%= render @doctors %>
+<% if current_user.patient? && current_user.images.length < 3 %>
+  <div class="p-5 bg-blue-300 text-blue-500 rounded-lg mt-2">
+    You must upload more images before you can create appointments
   </div>
-  <div class="px-2">
-    <div class="p-2 bg-emerald-500 text-white rounded-lg" id="appointments_warning">
-      Please select one doctor in order to set an appointment.
+<% else %>
+  <div class="flex">
+    <div class="pr-2">
+      <%= search_form_for(@q, url: new_appointment_path, class: "flex justify-between mb-2") do |f| %>
+        <%= f.search_field :profile_name_or_profile_address_cont, class: "rounded-lg h-8 border-blue-300" %>
+        <%= f.submit "Search", class: "bg-blue-300 text-white px-2 flex justify-center items-center border border-blue-500 rounded-lg" %>
+      <% end %>
+      <%= render @doctors %>
     </div>
-    <%= form_for(Appointment.new, url: appointments_path, html: {class: "my-2"}) do |f| %>
-      <h2 class="text-2xl self-center">New appointment</h2>
-      <%= f.hidden_field :doctor_id, class: "mt-4" %>
-
-      <%= f.date_field :date, class: "mt-4" %>
-      <div class="mt-4">
-        <%= f.submit "Create", class: "bg-blue-300 text-white p-2 border border-blue-500 rounded-lg" %>
+    <div class="px-2">
+      <div class="p-2 bg-emerald-500 text-white rounded-lg" id="appointments_warning">
+        Please select one doctor in order to set an appointment.
       </div>
-    <% end %>
+      <%= form_for(Appointment.new, url: appointments_path, html: {class: "my-2"}) do |f| %>
+        <h2 class="text-2xl self-center">New appointment</h2>
+        <%= f.hidden_field :doctor_id, class: "mt-4" %>
+
+        <%= f.date_field :date, class: "mt-4" %>
+        <div class="mt-4">
+          <%= f.submit "Create", class: "bg-blue-300 text-white p-2 border border-blue-500 rounded-lg" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>

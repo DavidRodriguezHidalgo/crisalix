@@ -4,7 +4,7 @@ class User < ApplicationRecord
   delegate :name, to: :profile
   delegate :address, to: :profile
 
-  before_save :create_profile
+  before_create :create_profile
 
   def patient?
     is_a?(Patient)

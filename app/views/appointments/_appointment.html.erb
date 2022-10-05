@@ -1,13 +1,13 @@
 <tr>
   <td>
     <% if current_user.patient? %>
-      <%= appointment.doctor.name %>
+      <%= link_to appointment.doctor.name, check_external_profile_path(appointment.doctor), class: "text-blue-500"  %>
     <% else %>
-        <%= appointment.patient.name %>
+      <%= link_to appointment.patient.name, check_external_profile_path(appointment.patient), class: "text-blue-500" %>
     <% end %>
   </td>
   <td>
-    <%= appointment.date %>
+    <%= appointment.date.strftime("%d-%m-%Y") %>
   </td>
   <td>
     <%= link_to "Delete", appointment_path(appointment), method: :delete, class: "bg-red-300 text-red-500 px-2 border border-red-500 rounded-lg"%>

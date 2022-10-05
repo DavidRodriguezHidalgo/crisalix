@@ -1,0 +1,30 @@
+<div class="mb-2">
+  <div class="flex items-start">
+    <div class="p-2 mb-2 rounded-lg flex flex-col justify-center items-center">
+      <%= image_tag "placeholder.jpeg", width: 100, class: "rounded-full" %>
+      <div>
+        Name:
+        <%= @profile.name %>
+      </div>
+      <div>
+        Address:
+        <%= @profile.address %>
+      </div>
+    </div>
+  </div>
+</div>
+<% if @profile.user.patient? %>
+  <div class="">
+    <div class="flex justify-between">
+      <h2 class="text-2xl self-center">User images</h2>
+      <% if @profile.user.images.length < 3 %>
+        <%= link_to "Add image", new_image_path, class: "bg-blue-300 text-white px-2 flex justify-center items-center border border-blue-500 rounded-lg" %>
+      <% end %>
+    </div>
+
+    <div class="flex mt-4">
+      <%= render @profile.user.images %>
+    </div>
+
+  </div>
+<% end %>

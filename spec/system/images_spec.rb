@@ -19,8 +19,8 @@ describe "as a patient", type: :system, js: true do
 
   it "allows me create 3 images" do
     log_in_user('patient@example.com', 'password')
-    expect(page).to have_content 'My images'
-    click_on 'My images'
+    expect(page).to have_content 'My profile'
+    click_on 'My profile'
 
     3.times do
       uploads_an_image
@@ -38,6 +38,7 @@ describe "as a doctor", type: :system, js: true do
 
   it "does not allow me to see my images" do
     log_in_user('doc@example.com', 'password')
+    click_on 'My profile'
     expect(page).to_not have_content 'My images'
   end
 end

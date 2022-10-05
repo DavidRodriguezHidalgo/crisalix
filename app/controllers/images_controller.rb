@@ -1,9 +1,5 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  
-  def index
-    @images = current_user.images
-  end
 
   def new
   end
@@ -11,7 +7,7 @@ class ImagesController < ApplicationController
   def create
     image = current_user.images.create(file: params[:image][:file])
     if image.valid?
-      redirect_to images_path, notice: "Image created"
+      redirect_to profile_path, notice: "Image created"
     else
       flash[:danger] = "Please upload an image (jpg, png or jpeg). "
       render :new
@@ -22,7 +18,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @image.file.purge
     if @image.destroy
-      redirect_to images_path, alert: "Image deleted"
+      redirect_to profile_path, alert: "Image deleted"
     end
   end
 end
