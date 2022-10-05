@@ -16,7 +16,11 @@ end
 def create_appointment
   visit '/'
   click_on 'Set an appointment'
-  expect(page).to have_content 'New appointment'
+  expect(page).to have_content 'Please select one doctor in order to set an appointment.'
+
+  within all('.doctor')[0] do
+    click_button 'Book appointment'
+  end
 
   within("#new_appointment") do
     fill_in 'appointment_date', with: DateTime.current.strftime("%m%d%Y\t%I%M%P")

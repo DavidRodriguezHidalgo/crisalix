@@ -1,15 +1,14 @@
 <div class="flex">
   <div class="pr-2">
-    List of doctors
-
     <%= render @doctors %>
   </div>
   <div class="px-2">
-    Form
-
+    <div class="p-2 bg-emerald-500 text-white rounded-lg" id="appointments_warning">
+      Please select one doctor in order to set an appointment.
+    </div>
     <%= form_for(Appointment.new, url: appointments_path, html: {class: "my-2"}) do |f| %>
       <h2 class="text-2xl self-center">New appointment</h2>
-      <%= f.hidden_field :doctor_id, class: "mt-4", value: @doctors.first.id %>
+      <%= f.hidden_field :doctor_id, class: "mt-4" %>
 
       <%= f.date_field :date, class: "mt-4" %>
       <div class="mt-4">

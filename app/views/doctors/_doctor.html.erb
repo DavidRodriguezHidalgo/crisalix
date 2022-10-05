@@ -1,4 +1,4 @@
-<div class="p-2 border-blue-500 bg-teal-500 mb-2 rounded-lg flex flex-col justify-center items-center">
+<div class="p-2 border-blue-500 bg-teal-500 mb-2 rounded-lg flex flex-col justify-center items-center doctor">
   <%= image_tag "placeholder.jpeg", width: 100, class: "rounded-full" %>
   <div class="flex-none">
     <div>
@@ -11,7 +11,7 @@
     </div>
 
     <div>
-      <%= link_to "Book appointment", "#", class: "bg-blue-300 text-white px-2 flex justify-center items-center border border-blue-500 rounded-lg"%>
+      <%= button_tag "Book appointment", class: "bg-blue-300 text-white px-2 flex justify-center items-center border border-blue-500 rounded-lg", data: {doctor: doctor.id}, onClick: "selectDoctor(#{doctor.id})" %>
     </div>
   </div>
 </div>

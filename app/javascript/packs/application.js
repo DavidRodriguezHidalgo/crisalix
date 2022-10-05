@@ -6,8 +6,22 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
+import { RalixApp } from 'ralix'
 import "channels"
+
+// Controllers
+import AppointmentsCtrl      from '../controller/appointments'
+
+const App = new RalixApp({
+    rails_ujs: Rails,
+    routes: {
+        '/appointments/new':    AppointmentsCtrl,
+    },
+    components: [
+    ]
+})
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+App.start()
