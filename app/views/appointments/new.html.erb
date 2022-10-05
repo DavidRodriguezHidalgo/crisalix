@@ -1,5 +1,9 @@
 <div class="flex">
   <div class="pr-2">
+    <%= search_form_for(@q, url: new_appointment_path, class: "flex justify-between mb-2") do |f| %>
+      <%= f.search_field :profile_name_or_profile_address_cont, class: "rounded-lg h-8 border-blue-300" %>
+      <%= f.submit "Search", class: "bg-blue-300 text-white px-2 flex justify-center items-center border border-blue-500 rounded-lg" %>
+    <% end %>
     <%= render @doctors %>
   </div>
   <div class="px-2">

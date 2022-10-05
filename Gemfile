@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'image_processing', '>= 1.2'
 gem 'activestorage-validator'
+gem 'ransack'
 
 group :development, :test do
   gem 'pry'

@@ -6,7 +6,8 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @doctors = Doctor.all
+    @q = Doctor.ransack(params[:q])
+    @doctors = @q.result(distinct: true)
   end
 
   def create
