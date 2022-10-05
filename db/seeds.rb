@@ -7,14 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 doc = Doctor.create(email: 'test@test.com', password: 'testtest')
-doc.profile.name = 'Philip'
-doc.profile.address = 'Recogidas Street 45, Granada'
+doc.profile.update(name: 'Philip', address: 'Recogidas Street 45, Granada')
 doc2 = Doctor.create(email: 'who@doctor.com', password: 'testtest')
-doc2.profile.name = 'Who'
-doc2.profile.address = 'Recogidas Street 40, Granada'
+doc2.profile.update(name: 'Who', address: 'Recogidas Street 40, Granada')
 doc3 = Doctor.create(email: 'daniel@test.com', password: 'testtest')
-doc3.profile.name = 'Daniel'
-doc3.profile.address = 'Recogidas Street 50, Granada'
+doc3.profile.update(name: 'Daniel', address: 'Recogidas Street 50, Granada')
 patient = Patient.create(email: 'mark@test.com', password: 'testtest')
-patient.profile.name = 'Mark'
-patient.profile.address = 'Fake street 123, Granada'
+patient.profile.update(name: 'Mark', address: 'Fake street 123, Granada')

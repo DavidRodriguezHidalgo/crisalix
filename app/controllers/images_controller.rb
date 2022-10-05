@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @images = current_user.images
   end
@@ -20,7 +22,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @image.file.purge
     if @image.destroy
-      redirect_to images_path, danger: "Image deleted"
+      redirect_to images_path, alert: "Image deleted"
     end
   end
 end

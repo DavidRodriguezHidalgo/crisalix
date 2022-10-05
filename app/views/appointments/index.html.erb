@@ -1,0 +1,27 @@
+<% if current_user.patient? && current_user.images.length < 3 %>
+  <div class="p-5 bg-blue-300 text-blue-500 rounded-lg mt-2">
+    You must upload more images before you can create appointments
+  </div>
+<% end %>
+
+<div class="flex items-center justify-between my-2">
+  <h2 class="text-2xl self-center"> Appointments </h2>
+  <% if current_user.patient? && current_user.images.length == 3 %>
+    <div class="flex justify-end">
+      <%= link_to "Set an appointment", new_appointment_path, class: "bg-blue-300 text-white px-2 flex justify-center items-center border border-blue-500 rounded-lg" %>
+    </div>
+  <% end %>
+</div>
+
+<table class="text-center">
+  <tr>
+    <% if current_user.patient? %>
+      <th>Doctor</th>
+    <% else %>
+      <th>Patient</th>
+    <% end %>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
+  <%= render @appointments %>
+</table>

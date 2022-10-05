@@ -3,5 +3,6 @@ class Patient < User
          :recoverable, :rememberable, :validatable
 
   has_many :images
+  has_many :appointments
   validates_length_of :images, maximum: 3
 end
