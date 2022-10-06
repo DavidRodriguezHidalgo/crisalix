@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## To build this project use:
 
-Things you may want to cover:
+`docker-compose build`
+and to initialize the db
+`docker-compose run app rake db:reset`
 
-* Ruby version
+# in order to run the project
 
-* System dependencies
+`docker-compose up` and check localhost:3000,
 
-* Configuration
+in seeds you have a list of doctors and a patient already created.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Tests
+`docker-compose run --rm -e RAILS_ENV=test app bin/rails spec:system`

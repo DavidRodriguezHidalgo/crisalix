@@ -7,7 +7,7 @@ end
 
 describe "as a user", type: :system, js: true do
   before :each do
-    User.create(email: 'user@example.com', password: 'password')
+    Doctor.create(email: 'user@example.com', password: 'password')
   end
 
   it "logs me in" do

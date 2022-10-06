@@ -1,0 +1,35 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: app
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+  chrome:
+    image: selenium/standalone-chrome:3.141.59-zirconium # this version should match that of the selenium-webdriver gem (see Gemfile)
+    volumes:
+      - /dev/shm:/dev/shm
+  app:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0"
+    volumes:
+      - ".:/app"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - chrome
+    links:
+      - db
+      - chrome
+    environment:
+      DB_USER: root
+      DB_NAME: crisalix
+      DB_PASSWORD: password
+      DB_HOST: db
+      HUB_URL: http://chrome:4444/wd/hub # <-- Add the HUB_URL environment variable
